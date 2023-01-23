@@ -12,8 +12,8 @@ function compPlay(n) {
     const flashing = setInterval(() => {
         const randomElement = images[Math.floor(Math.random() * images.length)];
         P2.setAttribute("src", randomElement)
-    }, 100)
-
+    }, 70)
+    
     setTimeout(() => {
         clearInterval(flashing)
         const randomElement = images[Math.floor(Math.random() * images.length)];
@@ -42,37 +42,45 @@ function ckeckwin() {
 let earlyImg = P1.getAttribute("src")
 const options = document.querySelectorAll(".optionImg")
 for (let option of options) {
-
+    
     option.addEventListener("mouseover", (move) => {
         earlyImg = P1.getAttribute("src")
         let choice = move.target.getAttribute("src")
         P1.setAttribute("src", choice)
     })
-
+    
     option.addEventListener("mouseleave", () => {
         P1.setAttribute("src", earlyImg)
     })
-
+    
     option.addEventListener("click", (move) => {
+        
+        const flashing = setInterval(() => {
+            const randomElement = images[Math.floor(Math.random() * images.length)];
+            P1.setAttribute("src", randomElement)
+        }, 70)
+
         winner.style.opacity = "0"
         let choice = move.target.getAttribute("src")
         P1.setAttribute("src", choice)
         earlyImg = P1.getAttribute("src")
-      
-        compPlay(1500)
+        
+        compPlay(800)
         setTimeout(()=>{
+            clearInterval(flashing)
             let win = ckeckwin()
             if ( win === 0){
                 winner.innerHTML = "Tieeee"
                 winner.style.opacity = "1"
             } else if ( win === 1) {
-                winner.innerHTML = "Yuu Win 🥲"
+                winner.innerHTML = "Yuu Won 🥲"
                 winner.style.opacity = "1"
             } else if ( win === 2) {
-                winner.innerHTML = "I Win 😁"
+                winner.innerHTML = "I Won 😁"
                 winner.style.opacity = "1"
             }
-        },1600)
+
+        },900)
 
     })
 
