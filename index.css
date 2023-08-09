@@ -17,8 +17,8 @@ header {
 }
 #winner {
     font-size: 3em;
-    color: gold;
-    background-color: #6c208d;
+    color: rgb(37, 49, 98);
+    background: linear-gradient(to right, #6072d735, #6072d772, #6072d715);
     width: fit-content;
     margin-inline: auto;
     padding-top: 0.1em;
