@@ -5,15 +5,15 @@
     margin: 0;
 }
 body {
-    background-color: rgb(235, 211, 235);
+    background: url(./image/background.png);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }
 header {
     padding: 2em;
     text-align: center;
-}
-hr {
-    border-width: 0.5em;
-    border-top-color: rgb(173, 51, 225);
 }
 #winner {
     font-size: 3em;
@@ -31,36 +31,58 @@ hr {
     opacity: 0;
 }
 .gameZone {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
     gap: 5em;
-    justify-content: center;
+    max-width: 1000px;
+    margin-inline: auto;
 }
 .player1, .player2 {
     display: flex;
-    gap: 5em;
     flex-direction: column;
+    gap: 5em;
     margin: 2em;
+    width: 95%;
+    margin-inline: auto;
 }
 .player1 > span { 
     display: flex;
     justify-content: space-around;
 }
 .optionImg {
-    width: 5em;
+    width: 25%;
     transform: scaleX(-1);
     transform: scaleY(-1);
 }
 .optionImg:hover {
-    background-color: rgba(244, 159, 244, 0.722);
+    border: 1.5px solid #d160d7;
+    border-radius: 5px;
+    padding: 5px;
 }
 #P1Img, #P2Img {
     transform: scaleX(-1);
     transform: scaleY(-1);
-    width: 15em;
-    height: 15em;
+    aspect-ratio: 1.6;
+    width: 90%;
 }
 #P2Img {
     transform: rotate(180deg);
+}
+
+@media only screen and (max-width:480px) {
+    .gameZone {
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 1000px;
+        margin-inline: auto;
+        height: unset;
+    }
+    #P1Img, #P2Img {
+        width: unset;
+    }
+    .player1, .player2 {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 650px) {
@@ -73,19 +95,19 @@ hr {
     .player1, .player2 {
         gap:2em;
     }
-    .optionImg {
-        width: 3em;
+    .gameZone {
+        margin: 0;
+        /* height: 75vh; */
+        overflow: hidden;
     }
-    #P1Img, #P2Img {
-        width: 8em;
-        height: 8em;
+    #main {
+        height: max-content;
+        display: grid;
+        grid-template-rows: 10% 13% 80%;
     }
 }
-
+/* 
 @media only screen and (max-width: 380px) {
-    /* body {
-        background-color: black;
-    } */
     .player1, .player2 {
         gap:0em;
     }
@@ -129,4 +151,4 @@ hr {
         height: 3em;
     }
     
-}
+} */
